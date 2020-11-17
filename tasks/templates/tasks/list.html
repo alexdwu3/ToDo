@@ -4,36 +4,42 @@ crossorigin="anonymous">
 
 <style>
     body{
-        background-color: #57467B;
+        background-color: #3b2e5a;
     }
 
+    input::placeholder {
+        color: grey;
+    }
     input{
+        background-color: white;
         width: 100%;
         padding: 12px 20px;
-        margin: 8px 0;
+        margin: 10px 0;
         box-sizing: border-box;
+        border-color: white;
+        border-radius: 0.01px;
     }
 
 
     .submit{
-        background-color: #7CB4B8;
+        background-color: #7681A8;
     }
 
     .center-column{
         width:575px;
         margin: 40px auto;
         padding: 18px;
-        background-color:#95A3B3;
+        background-color: #394989;
         border-radius: 2px;
         box-shadow: 3.20px 1.25px 20px 0px rgba(0,0,0,0.40);
     }
 
     .taskRow{
-        background-color: #7CB4B8;
+        background-color: #C291BA;
         margin: 7px;
         padding: 15px;
         border-radius: 3px;
-        color: #766153;
+        color: #222E50;
         font-size: 16px;
         box-shadow: 0px -1px 10px -4px rgba(0,0,0,0.75);
     }
@@ -62,7 +68,7 @@ crossorigin="anonymous">
             {%if task.complete == True%}
             <strike> {{task}}</strike> 
             {%else%}
-            <span padding: 10px>{{ task}}</span> 
+            <span>{{ task}}</span> 
             {%endif%}
         </div>
     {% endfor %}
