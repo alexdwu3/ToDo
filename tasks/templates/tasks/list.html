@@ -2,23 +2,68 @@
 integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" 
 crossorigin="anonymous">
 
-<form method="POST" action="/">
-        {%csrf_token%} <!--needed security-->
-        {{form.title}}
-        <input type="submit" name="Create Task">
-</form>
+<style>
+    body{
+        background-color: #9B489B;
+    }
+
+    input{
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+    }
+
+
+    .submit{
+        background-color: #82FF9E;
+    }
+
+    .center-column{
+        width:600px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color:#A9FBC3;
+        border-radius: 3px;
+        box-shadow: 6px 2px 30px 0px rgba(0,0,0,0.75);
+    }
+
+    .item-row{
+        background-color: #82FF9E;
+        margin: 10px;
+        padding: 10px;
+        border-radius: 3px;
+        color: #82FF9E;
+        font-size: 16px;
+        box-shadow: 0px -1px 10px -4px rgba(0,0,0,0.75);
+    }
+    
+    .btnConfirm{
+        background-color: #B594B6;
+        border-color: #A9FBC3;
+    }
+</style>
+
+<div class="center-column">
+
+    <form method="POST" action="/">
+            {%csrf_token%} <!--needed security-->
+            {{form.title}}
+            <input type="submit" name="Create Task">
+    </form>
 
 
 
-{% for task in tasks %}
-    <div>
-        <a href="{% url 'update_task' task.id %}">Update</a>
-        <a href="{% url 'delete' task.id %}">Delete</a>
-        
-        {%if task.complete == True%}
-        <strike> {{task}}</strike> 
-        {%else%}
-        <span>{{task}}</span> 
-        {%endif%}
-    </div>
-{% endfor %}
+    {% for task in tasks %}
+        <div>
+            <a href="{% url 'update_task' task.id %}">Update</a>
+            <a href="{% url 'delete' task.id %}">Delete</a>
+            
+            {%if task.complete == True%}
+            <strike> {{task}}</strike> 
+            {%else%}
+            <span>{{task}}</span> 
+            {%endif%}
+        </div>
+    {% endfor %}
+</div>
