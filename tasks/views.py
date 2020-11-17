@@ -37,3 +37,5 @@ def deleteTask(request, pk):
         return redirect('/')
     context = {'item':item}
     return render(request, 'tasks/delete.html', context)
+
+    # hi
